@@ -3,401 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerard E. Bolongon | Virtual Administrative Assistant</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Gerard Bolongon | Virtual Administrative Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1a252f;
-            --secondary: #2c3e50;
-            --accent: #2980b9;
-            --bg-light: #f8f9fa;
-            --text-dark: #333333;
-            --text-muted: #666666;
-            --white: #ffffff;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            color: #333; 
+            line-height: 1.6; 
+            background: #f5f5f5;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1.5rem;
-        }
-
-        .logo {
-            font-size: 1.2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 5rem 1.5rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero h2 {
-            font-size: 1.4rem;
-            color: #bdc3c7;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #1c5980;
-        }
-
-        .section {
-            padding: 4rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--primary);
+        
+        header { 
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: #fff; 
+            padding: 80px 20px; 
+            text-align: center; 
             position: relative;
+            overflow: hidden;
         }
-
-        .section-title::after {
+        
+        header::before {
             content: '';
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 188, 156, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card i {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            margin-bottom: 0.8rem;
-            color: var(--secondary);
-        }
-
-        .card ul {
-            list-style-type: none;
-        }
-
-        .card ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.2rem;
+        
+        .header-content {
             position: relative;
-        }
-
-        .card ul li::before {
-            content: '•';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .tools-category {
-            margin-bottom: 2rem;
-        }
-
-        .tools-category h4 {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .tool-tags {
+            z-index: 1;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-
-        .tag {
-            background: #eef2f5;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--secondary);
+        
+        .profile-image-container {
+            flex-shrink: 0;
         }
-
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #1abc9c;
+            box-shadow: 0 10px 40px rgba(26, 188, 156, 0.3);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-text h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header-text p { 
+            font-size: 1.2rem; 
+            color: #1abc9c;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .header-text small {
+            display: block;
+            font-size: 0.95rem;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+        
+        .btn { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white; 
+            padding: 12px 30px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 188, 156, 0.4);
+            background: linear-gradient(135deg, #16a085 0%, #138d75 100%);
+        }
+        
+        .container { 
+            max-width: 1000px; 
+            margin: auto; 
+            padding: 60px 20px; 
+        }
+        
+        .container h2 {
+            font-size: 2rem;
+            color: #1a252f;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #1abc9c;
+            border-radius: 2px;
+        }
+        
+        .about-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 60px;
+        }
+        
+        .about-section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        
+        .card { 
+            background: white;
+            padding: 30px; 
+            border-radius: 10px; 
+            border-left: 5px solid #1abc9c;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(26, 188, 156, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(26, 188, 156, 0.15);
+            border-left-color: #16a085;
+        }
+        
+        .card h3 {
+            font-size: 1.4rem;
+            color: #1a252f;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: #1abc9c;
+            margin-bottom: 15px;
+        }
+        
+        footer { 
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: #fff; 
+            text-align: center; 
+            padding: 40px 20px; 
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        footer strong {
+            color: #1abc9c;
+        }
+        
         .contact-info {
-            text-align: center;
-            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
         }
-
-        .contact-info p {
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        
+        .contact-info a {
+            color: #1abc9c;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
-
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+        
+        .contact-info a:hover {
+            color: #16a085;
         }
-
+        
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero h2 { font-size: 1.2rem; }
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.5rem; }
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <div class="logo">GERARD E. BOLONGON</div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#tools">Tools</a>
-                <a href="#why-me">Why Work With Me</a>
-                <a href="#contact">Contact</a>
-            </nav>
+        <div class="header-content">
+            <div class="profile-image-container">
+                <img src="profile.jpg" alt="Gerard Bolongon" class="profile-image">
+            </div>
+            <div class="header-text">
+                <h1>GERARD E. BOLONGON</h1>
+                <p>Virtual Administrative Assistant</p>
+                <small>📍 General Santos City, Philippines</small>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>GERARD E. BOLONGON</h1>
-        <h2>Virtual Administrative Assistant</h2>
-        <p>Helping busy professionals stay organized, productive, and focused through reliable administrative support.</p>
-        <a href="#contact" class="btn">Get In Touch</a>
-    </section>
-
-    <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-        <div class="card">
-            <p>I'm Gerard Bolongon, an aspiring Virtual Administrative Assistant dedicated to helping businesses stay organized, productive, and on track. I provide reliable support in data entry, calendar and email management, administrative tasks, and basic graphic design. I am comfortable using digital tools such as Google Workspace, Canva, Trello, and other productivity platforms to manage tasks efficiently and keep work organized. I am detail-oriented, willing to learn, and committed to providing dependable support that helps clients save time and focus on their priorities.</p>
-            <br>
-            <p><strong>Location:</strong> Based in the Philippines</p>
+    <div class="container">
+        <div class="about-section">
+            <h2>About Me</h2>
+            <p>I am a Virtual Administrative Assistant dedicated to helping businesses stay organized, productive, and focused through reliable administrative support, database management, and workflow optimization. With expertise in modern digital tools and a commitment to excellence, I deliver results that streamline your operations and boost team productivity.</p>
         </div>
-    </section>
 
-    <section id="services" class="section">
-        <h2 class="section-title">Services Offered</h2>
-        <div class="grid-3">
+        <h2>Core Services</h2>
+        <div class="services-grid">
             <div class="card">
-                <i class="fas fa-folder-open"></i>
-                <h3>Administrative & Executive Support</h3>
-                <ul>
-                    <li>Cloud folder organization</li>
-                    <li>Document encoding</li>
-                    <li>Online research</li>
-                </ul>
+                <div class="card-icon"><i class="fas fa-database"></i></div>
+                <h3>Data Entry</h3>
+                <p>Accurate database management, lead tracking, and spreadsheet organization using Google Sheets.</p>
             </div>
             <div class="card">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Calendar & Schedule Management</h3>
-                <ul>
-                    <li>Appointment setting</li>
-                    <li>Time-blocking</li>
-                    <li>Time zone coordination</li>
-                </ul>
+                <div class="card-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email & Calendar</h3>
+                <p>Inbox decluttering, meeting scheduling, priority sorting, and client communications.</p>
             </div>
             <div class="card">
-                <i class="fas fa-envelope"></i>
-                <h3>Email & Inbox Management</h3>
-                <ul>
-                    <li>Inbox sorting & cleanup</li>
-                    <li>Drafting professional replies</li>
-                    <li>Inbox Zero standards</li>
-                </ul>
+                <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                <h3>Project Management</h3>
+                <p>Task tracking, deadline setting, and workflow organization in Trello and Notion.</p>
             </div>
             <div class="card">
-                <i class="fas fa-table"></i>
-                <h3>Data Entry & Spreadsheets</h3>
-                <ul>
-                    <li>Data encoding & cleaning</li>
-                    <li>Google Sheets & Excel trackers</li>
-                    <li>Database maintenance</li>
-                </ul>
-            </div>
-            <div class="card">
-                <i class="fas fa-user-check"></i>
-                <h3>Lead Generation & Research</h3>
-                <ul>
-                    <li>Prospect research</li>
-                    <li>Contact verification</li>
-                    <li>Lead tracking databases</li>
-                </ul>
-            </div>
-            <div class="card">
-                <i class="fas fa-paint-brush"></i>
-                <h3>Visual & Content Support</h3>
-                <ul>
-                    <li>Branded social media graphics</li>
-                    <li>Presentation decks</li>
-                    <li>CapCut short-form video editing</li>
-                </ul>
+                <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Graphic Design</h3>
+                <p>Visual content creation for social platforms using Canva and Adobe Photoshop.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="tools" class="section">
-        <h2 class="section-title">Tools I Use</h2>
-        <div class="card">
-            <div class="tools-category">
-                <h4>Core Admin Tools</h4>
-                <div class="tool-tags">
-                    <span class="tag">Gmail</span>
-                    <span class="tag">Google Calendar</span>
-                    <span class="tag">Google Drive</span>
-                    <span class="tag">Google Docs</span>
-                    <span class="tag">Google Sheets</span>
-                    <span class="tag">MS Word</span>
-                    <span class="tag">MS Excel</span>
-                    <span class="tag">MS PowerPoint</span>
-                </div>
-            </div>
-            <div class="tools-category">
-                <h4>Project & Communication</h4>
-                <div class="tool-tags">
-                    <span class="tag">Trello</span>
-                    <span class="tag">Zoom</span>
-                    <span class="tag">Google Meet</span>
-                    <span class="tag">Slack</span>
-                    <span class="tag">WhatsApp</span>
-                </div>
-            </div>
-            <div class="tools-category">
-                <h4>Creative & Additional Tools</h4>
-                <div class="tool-tags">
-                    <span class="tag">Canva</span>
-                    <span class="tag">Photoshop</span>
-                    <span class="tag">CapCut</span>
-                    <span class="tag">ChatGPT</span>
-                    <span class="tag">Gemini</span>
-                    <span class="tag">Notion</span>
-                    <span class="tag">Evernote</span>
-                </div>
-            </div>
+    <footer id="contact">
+        <p style="font-size: 1.3rem; margin-bottom: 20px;"><strong>Ready to streamline your business?</strong></p>
+        <div class="contact-info">
+            <span>📧 <a href="mailto:your-email@example.com">your-email@example.com</a></span>
+            <span>📱 <a href="tel:+63XXXXXXXXXX">Contact via WhatsApp/Viber</a></span>
         </div>
-    </section>
-
-    <section id="why-me" class="section">
-        <h2 class="section-title">Why Work With Me?</h2>
-        <div class="grid-3">
-            <div class="card">
-                <i class="fas fa-check-circle"></i>
-                <h3>Detail-Oriented & Organized</h3>
-                <p>Meticulous approach to every task from data entry to calendar coordination. Every detail matters, ensuring nothing falls through the cracks.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Reliable & Accurate</h3>
-                <p>Count on me to deliver work on time, every time. Clear and proactive communication paired with a high standard of accuracy.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-lock"></i>
-                <h3>Eager to Learn & Confidential</h3>
-                <p>Ready to embrace new tools and challenges while handling all client information with complete discretion and professionalism.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Let's Work Together!</h2>
-        <div class="card contact-info">
-            <p>Ready to streamline your business?</p>
-            <p><strong>Email:</strong> gerardbolongon@gmail.com</p>
-            <p><strong>Phone:</strong> +63 967 962 1635</p>
-            <br>
-            <a href="mailto:gerardbolongon@gmail.com" class="btn">Send Me an Email</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Gerard E. Bolongon. All Rights Reserved.</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #bdc3c7;">© 2024 Gerard Bolongon. All rights reserved.</p>
     </footer>
 
 </body>
